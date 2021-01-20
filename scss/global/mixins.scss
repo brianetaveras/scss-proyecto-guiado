@@ -1,0 +1,31 @@
+ @mixin hover() {
+     &:hover {
+         @content;
+     }
+ }
+
+
+ @mixin responsive($size){
+    $phone: "(max-width: 600px)";
+    $tablet: "(max-width: 800px)";
+    $small: "(max-width: 1200px)";
+    $medium: "(max-width: 1400px)";
+    $large: "(max-width: 1600px)";
+    
+
+    @if $size == large {
+        @media #{$large} { @content;}
+    }
+    @else if $size == medium { 
+        @media #{$medium} { @content;}
+    }
+    @else if $size == small { 
+        @media #{$small} { @content;}
+    }
+    @else if $size == tablet { 
+        @media #{$tablet} { @content;}
+    }
+    @else if $size == phone { 
+        @media #{$phone} { @content;}
+    }
+ }

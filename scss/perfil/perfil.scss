@@ -1,0 +1,99 @@
+#pagina-de-perfil{
+    &.container {
+        width: 100%;
+        max-width: 700px;
+        margin: 20px auto;
+        background: rgba(255, 255, 255, 0.5);
+        padding: 20px;
+        border-radius: 15px;    
+
+        .container_info {
+            display: flex;
+            justify-content: space-between;
+
+            @include responsive(tablet){
+                flex-direction: column;
+            }
+
+            .image_container{
+                position: relative;
+                width: 200px;
+                @include responsive(tablet){
+                    margin: 0 auto;
+                }
+
+                .profile-image{
+                    width: 200px;
+                    height: 200px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                }
+                .image-camera{
+                    position: absolute;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    bottom: 20px;
+                    right: 10px;
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    background: white;
+                    cursor: pointer;
+                    transition: opacity 0.5s;
+                    @include hover(){
+                        opacity: 0.5;
+                    }   
+                }
+            }
+            .bio_container{
+                width: 65%;
+            }
+        }
+    }
+}
+
+#pagina-de-perfil{
+    &.container {
+        
+        .posts_container{
+            max-height: 500px;
+            overflow-y: auto;
+            
+            .post_content {
+                display: grid;
+                grid-template-areas: "pic name name"
+                                     "pic content content"
+                                     "pic date date";
+                grid-template-columns: 60px auto auto;
+                grid-template-rows: 18px auto 24px;
+                overflow: hidden;
+
+                .post_content-image{
+                    grid-area: pic;
+                    height: 40px;
+                    width: 40px;
+                    border-radius: 50%;
+                    margin: 10px 0;
+                }
+            
+                .post_content-name{
+                    grid-area: name;
+                    font-size: 16px;
+                }
+
+                .post_content-text{
+                    grid-area: content;
+                    text-overflow: ellipsis;
+                    overflow-wrap: anywhere;
+
+                }
+
+                .post_content-date {
+                    grid-area: date;
+                    @extend .text-right;
+                }
+            }
+        }
+    }
+}

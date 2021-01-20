@@ -1,0 +1,22 @@
+.text-bold {
+    font-weight: bold;
+}
+
+.title {
+    font-size: 24px;    
+    text-transform: uppercase;
+}
+
+.subtitle {
+    font-size: 18px;
+}
+
+
+$alignment: (center, left, right);
+
+@each $dir in $alignment {
+    .text-#{$dir}{
+        text-align: $dir;
+    }
+}
+

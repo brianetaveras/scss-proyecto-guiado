@@ -1,0 +1,11 @@
+$colors: (
+    primario: red,
+    secundario: blue
+);
+
+
+@each $key, $value in $colors {
+    .#{$key}-background {
+        background-color: $value;
+    }
+}
